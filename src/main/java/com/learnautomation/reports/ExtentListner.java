@@ -13,15 +13,15 @@ import com.learnautomation.base.BaseClass;
 import com.learnautomation.browser.Browserfactory;
 import com.learnautomation.utils.Helper;
 
-public class ExtentListner extends BaseClass implements ITestListener{
+public class ExtentListner implements ITestListener{
 
 
-	ExtentReports extentreport=ExtentManager.getInstance();
-	ExtentTest extent;
+	ExtentReports extent=ExtentManager.getInstance();
+	ExtentTest test;
 	
 	public void onTestSuccess(ITestResult result) {
 	   
-	   extent.pass("Test Case passed");
+	   test.pass("Test Case passed");
 //	    Reporter.log( result.getInstanceName(), true);
 //	    Reporter.log( result.getMethod().getMethodName(), true);
 //	    Reporter.log( ""+result.getStatus(), true);
@@ -33,7 +33,7 @@ public class ExtentListner extends BaseClass implements ITestListener{
 		
 		WebDriver driver=Browserfactory.getDriver();
 		String cap=Helper.captureScreenshot(driver);
-		extent.fail("Test Case failed"+result.getThrowable().getMessage(),MediaEntityBuilder.createScreenCaptureFromBase64String(cap).build());
+		test.fail("Test Case failed"+result.getThrowable().getMessage(),MediaEntityBuilder.createScreenCaptureFromBase64String(cap).build());
 		Reporter.log( result.getInstanceName(), true);
 	    Reporter.log( result.getMethod().getMethodName(), true);
 	    Reporter.log( ""+result.getStatus(), true);
@@ -44,14 +44,14 @@ public class ExtentListner extends BaseClass implements ITestListener{
 	public void onTestStart(ITestResult result) {
 	    // not implemented
 		
-	    extent =extentreport.createTest(result.getMethod().getMethodName());
+	    test =extent.createTest(result.getMethod().getMethodName());
 	  }
 	
 	public void onFinish(ITestContext context) {
 	    // not implemented
 		Reporter.log( "Test finihed", true);
 	   // Reporter.log( result.getMethod().getMethodName(), true);
-		extentreport.flush();
+		extent.flush();
 	  }
 	
 }

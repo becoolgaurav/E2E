@@ -24,6 +24,10 @@ public class RegisterationPage {
 	By state=By.xpath("//select[@name='state']");
 	By hobby=By.xpath("//select[@name='hobbies']");
 	By submit=By.xpath("//button[@class='submit-btn']");
+	By manage=By.xpath("//img[@alt='menu']");
+	By home=By.xpath("//a/*[text()='Home']");
+	By title=By.xpath("//h1[text()='Learn Automation Courses']");
+	
 	
 	public void register(String uname,String eemail,String ppass,String estate,String Hobby)
 	{
@@ -42,7 +46,18 @@ public class RegisterationPage {
 		
 	}
 	
+	public void clickSignIn()
+	{
+//		LoginPage login=new LoginPage(driver);
+//		login.clickSignUp();
+		driver.findElement(manage).click();
+		driver.findElement(home).click();
+	}
 	
+	public boolean titleDisplay()
+	{
+	return 	driver.findElement(title).isDisplayed();
+	}
 	
 	
 

@@ -19,6 +19,12 @@ public class LoginPage {
 	private By signIn=By.xpath("//button[@class='submit-btn']");
 	private By signUp=By.xpath("//a[@class='subLink']");
 	
+	
+	public boolean signInDisplay()
+	{
+		return driver.findElement(signIn).isDisplayed();
+	}
+	
 	public HomePage signIn(String uName,String pWord)
 	{
 		driver.findElement(email).sendKeys(uName);
