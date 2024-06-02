@@ -20,7 +20,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 	    
 	    public static ExtentReports createInstance() {
 	        ExtentSparkReporter htmlReporter = new ExtentSparkReporter("C:/Selenium-Project/E2e/ExtentReport/Automate.html");
-	        htmlReporter.config().setTheme(Theme.STANDARD);
+	        htmlReporter.config().setTheme(Theme.DARK);
 	        htmlReporter.config().setDocumentTitle("Automation Report");
 	        htmlReporter.config().setEncoding("utf-8");
 	        htmlReporter.config().setReportName("report 1");

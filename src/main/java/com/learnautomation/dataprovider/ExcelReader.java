@@ -27,7 +27,7 @@ public class ExcelReader {
 		{
 			for(int j=0;j<colcount;j++)
 			{
-				val[i][j]=wb.getSheet(sheetName).getRow(i).getCell(j).getStringCellValue();
+				val[i][j]=sheet.getRow(i).getCell(j).getStringCellValue();
 			}
 		}
 				
